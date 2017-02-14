@@ -89,25 +89,25 @@
 				const create = document.querySelector('#create');
 				let decAr = [];
 
-				let textFile = null;
-				const makeTextFile = function (text) {
+				let cssFile = null;
+				const makeCssFile = function (text) {
 					const data = new Blob([text], {type: 'text/plain'});
 
 					// If we are replacing a previously generated file we need to
 					// manually revoke the object URL to avoid memory leaks.
-					if (textFile !== null) {
-						window.URL.revokeObjectURL(textFile);
+					if (cssFile !== null) {
+						window.URL.revokeObjectURL(cssFile);
 					}
 
-					textFile = window.URL.createObjectURL(data);
+					cssFile = window.URL.createObjectURL(data);
 
-					return textFile;
+					return cssFile;
 				};
 
 				create.addEventListener('click', function () {
 					const link = document.createElement('a');
 					link.setAttribute('download', 'styles.parsed.css');
-					link.href = makeTextFile(textbox.value);
+					link.href = makeCssFile(textbox.value);
 					document.body.appendChild(link);
 
 					// wait for the link to be added to the document
@@ -172,7 +172,7 @@
 					});
 					
 					// rebuild styles
-					const rebuiltStr = decAr.map(ars => {
+					const rebuiltStyles = decAr.map(ars => {
 						// ars = [single declaration, arr of selectors]
 						if( ars ) {
 							const declaration = ars[0];
@@ -188,7 +188,7 @@
 					}).join('');
 
 					// print to file
-					textbox.value = rebuiltStr;
+					textbox.value = rebuiltStyles;
 				});
 			}
 		})();
