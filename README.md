@@ -16,5 +16,5 @@ Into this
 
 And minifies it
 ```
-.hello,.world{font: 14px;}.hello {color: #AFEEEE;}.world{color: #9ACD32;}
+.hello,.world{font: 14px;}.hello{color: #AFEEEE;}.world{color: #9ACD32;}
 ```
