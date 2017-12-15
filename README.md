@@ -16,7 +16,7 @@ In other words, we have minimized the number of declarations in this CSS example
 ```
 .hello, .world { font: 14px; } /* Selectors are grouped per matching declaration */
 .hello { color: #AFEEEE; }
-.world { color: #9ACD32; border: 1px solid #8F7D70; } /* Declarations are consolidated per matching selector group */ 
+.world { color: #9ACD32; border: 1px solid #8F7D70; } /* Declarations are grouped per matching selector(s) */ 
 ```
 
 If consolidate is turned off, then CSSParser will return solely one declaration per selector(s)
